@@ -1,5 +1,6 @@
 # family-feud
 A Family Feud game created with react.  
+[Try the live demo here](https://jvkolyadich.github.io/family-feud/)  
 
 The game was designed to be able to run from a static html file, without  
 the need for a server. The game display was created for a screen with a 4:3  
