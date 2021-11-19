@@ -1,0 +1,57 @@
+import React from 'react'
+import { useDispatch } from 'react-redux'
+import useSound from 'use-sound'
+import revealSfx from '../../assets/reveal.mp3'
+
+const AnswerControl = ({ disabled, answer, index }) => {
+    const dispatch = useDispatch()
+    const [playReveal] = useSound(revealSfx, { volume: 0.25 })
+    const row = index <= 3 ? index + 1 : index - 3
+    const column = index <= 3 ? 1 : 2
+    return (
+        <div
+            key={index}
+            className='d-flex w-100 justify-content-between px-1'
+            style={{
+                gridArea: `${row}/${column}/${row}/${column}`,
+                justifySelf: 'center'
+            }}
+        >
+            <div
+                className='card w-100 p-1 d-flex flex-column align-items-center text-center'
+                style={{ position: 'relative', overflow: 'hidden' }}
+            >
+                <div className='fs-5 me-2 fw-bold mb-1'>{answer.text}</div>
+                <div
+                    className='fs-5'
+                    style={{
+                        position: 'absolute',
+                        top: '0.25rem',
+                        right: '0.25rem',
+                        backgroundColor: 'white'
+                    }}
+                >
+                    {answer.points}
+                </div>
+                <button
+                    className={`btn btn-sm w-100 btn-${answer.isRevealed ? 'secondary' : 'primary'}`}
+                    disabled={disabled}
+                    onClick={() => {
+                        if (!answer.isRevealed) playReveal()
+                        dispatch({
+                            type: 'answers/set-is-revealed',
+                            payload: {
+                                id: answer.id,
+                                isRevealed: !answer.isRevealed
+                            }
+                        })
+                    }}
+                >
+                    {answer.isRevealed ? 'Hide' : 'Reveal'}
+                </button>
+            </div>
+        </div>
+    )
+}
+
+export default AnswerControl
