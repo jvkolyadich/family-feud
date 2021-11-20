@@ -52,7 +52,7 @@ const App = () => {
         return () => stopEnding()
     }, [gameEnding])
     useEffect(() => {
-        if (gameStarted && isTabOpen && !gameEnded && !gameEnded) {
+        if (gameStarted && isTabOpen && !gameEnding && !gameEnded) {
             playQuestion()
             dispatch({
                 type: 'game/set-is-question-showing',
