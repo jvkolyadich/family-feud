@@ -11,23 +11,29 @@ const AnswerControl = ({ disabled, answer, index }) => {
     return (
         <div
             key={index}
-            className='d-flex w-100 justify-content-between px-1'
+            className='d-flex w-100 justify-content-between p-1'
             style={{
                 gridArea: `${row}/${column}/${row}/${column}`,
                 justifySelf: 'center'
             }}
         >
             <div
-                className='card w-100 p-1 d-flex flex-column align-items-center text-center text-nowrap'
+                className='card w-100 p-1 d-flex flex-column align-items-center'
                 style={{ position: 'relative', overflow: 'hidden' }}
             >
-                <div className='fs-5 me-2 fw-bold mb-1'>{answer.text}</div>
+                <div
+                    className='fs-5 fw-bold d-flex text-nowrap mb-1 mx-1'
+                    style={{ maxWidth: '100%' }}
+                >
+                    {answer.text}
+                </div>
                 <div
                     className='fs-5'
                     style={{
                         position: 'absolute',
-                        top: '0.25rem',
-                        right: '0.25rem',
+                        top: '0',
+                        right: '0',
+                        padding: '0.25rem',
                         backgroundColor: 'white'
                     }}
                 >
