@@ -16,19 +16,13 @@ export const openTab = () => {
             <div id="root"></div>
             <style>
                 @font-face {
-                    font-family: "Impact";
-                    src: url(${impactFont}) format("truetype");
+                    font-family: Impact;
+                    src: url(${impactFont}) format('truetype');
                 }
                 @keyframes blink {
-                    0% {
-                        background-color: yellow;
-                    }
-                    25% {
-                        background-color: yellow;
-                    }
-                    100% {
-                        background-color: #4e4e4e;
-                    }
+                    10% { background-color: yellow; }
+                    25% { background-color: yellow; }
+                    100% { background-color: #4e4e4e; }
                 }
             </style>
         `
