@@ -18,7 +18,7 @@ const AnswerControl = ({ disabled, answer, index }) => {
             }}
         >
             <div
-                className='card w-100 p-1 d-flex flex-column align-items-center text-center'
+                className='card w-100 p-1 d-flex flex-column align-items-center text-center text-nowrap'
                 style={{ position: 'relative', overflow: 'hidden' }}
             >
                 <div className='fs-5 me-2 fw-bold mb-1'>{answer.text}</div>
