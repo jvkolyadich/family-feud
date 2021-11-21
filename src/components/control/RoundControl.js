@@ -27,7 +27,8 @@ const RoundControl = ({ disabled }) => {
                     display: 'grid',
                     alignItems: 'center',
                     gridTemplateRows: 'repeat(4, 25%)',
-                    gridTemplateColumns: 'repeat(2, 50%)'
+                    gridTemplateColumns: 'repeat(2, 50%)',
+                    height: '21rem'
                 }}
             >
                 {currentAnswers.map((answer, index) => (

@@ -23,7 +23,7 @@ const AnswerControl = ({ disabled, answer, index }) => {
             >
                 <div
                     className='fs-5 fw-bold d-flex text-nowrap mb-1 mx-1'
-                    style={{ maxWidth: '100%' }}
+                    style={{ maxWidth: '100%', height: '1.875rem' }}
                 >
                     {answer.text}
                 </div>
@@ -34,6 +34,7 @@ const AnswerControl = ({ disabled, answer, index }) => {
                         top: '0',
                         right: '0',
                         padding: '0.25rem',
+                        borderRadius: '0.25rem',
                         backgroundColor: 'white'
                     }}
                 >
@@ -41,7 +42,7 @@ const AnswerControl = ({ disabled, answer, index }) => {
                 </div>
                 <button
                     className={`btn btn-sm w-100 btn-${answer.isRevealed ? 'secondary' : 'primary'}`}
-                    disabled={disabled}
+                    disabled={disabled || !answer.text}
                     onClick={() => {
                         if (!answer.isRevealed) playReveal()
                         dispatch({
