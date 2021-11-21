@@ -11,6 +11,7 @@ import Answers from './Answers'
 import Strikes from './Strikes'
 import Lights from './Lights'
 import Question from './Question'
+import BlackScreen from './BlackScreen'
 
 const GameScreen = () => {
     const teams = useSelector(state => state.teams.teams)
@@ -53,6 +54,7 @@ const GameScreen = () => {
                 </CenterScreen>
                 <Strikes />
             </Board>
+            <BlackScreen />
         </Background>
     )
 }

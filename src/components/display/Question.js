@@ -15,9 +15,6 @@ const Question = () => {
                 top: '50%',
                 left: '49.95%',
                 transform: 'translate(-50%, -50%)',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
                 opacity: isShowing ? '100%' : '0%',
                 transition: 'opacity 0.3s ease-in-out'
             }}
@@ -34,9 +31,12 @@ const Question = () => {
             />
             <div
                 style={{
-                    zIndex: 5,
+                    position: 'absolute',
                     width: '94%',
                     height: '94%',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',

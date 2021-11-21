@@ -1,4 +1,5 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import Background from './Background'
 import Board from './Board'
 import TopMiniScreen from './TopMiniScreen'
@@ -9,8 +10,10 @@ import logoImg from '../../assets/logo.png'
 import LeftMiniScreen from './LeftMiniScreen'
 import Lights from './Lights'
 import RightMiniScreen from './RightMiniScreen'
+import BlackScreen from './BlackScreen'
 
 const StartingScreen = () => {
+    const isStarting = useSelector(state => state.game.starting)
     return (
         <Background>
             <Board>
@@ -18,10 +21,10 @@ const StartingScreen = () => {
                     <Logo />
                 </TopMiniScreen>
                 <LeftMiniScreen>
-                    <Lights />
+                    <Lights turnedOn={isStarting} />
                 </LeftMiniScreen>
                 <RightMiniScreen>
-                    <Lights />
+                    <Lights turnedOn={isStarting} />
                 </RightMiniScreen>
                 <CenterScreen>
                     <div
@@ -54,6 +57,7 @@ const StartingScreen = () => {
                     </div>
                 </CenterScreen>
             </Board>
+            <BlackScreen />
         </Background>
     )
 }

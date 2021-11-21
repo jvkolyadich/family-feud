@@ -10,8 +10,10 @@ import logoImg from '../../assets/logo.png'
 import LeftMiniScreen from './LeftMiniScreen'
 import RightMiniScreen from './RightMiniScreen'
 import Lights from './Lights'
+import BlackScreen from './BlackScreen'
 
 const EndingScreen = () => {
+    const isEnding = useSelector(state => state.game.ending)
     const teams = useSelector(state => state.teams.teams)
     return (
         <Background>
@@ -23,6 +25,7 @@ const EndingScreen = () => {
                     {teams[0].score}
                     <Lights
                         turnedOn={teams[0].score >= teams[1].score}
+                        animated={isEnding}
                         stripes={4}
                     />
                 </LeftMiniScreen>
@@ -30,6 +33,7 @@ const EndingScreen = () => {
                     {teams[1].score}
                     <Lights
                         turnedOn={teams[1].score >= teams[0].score}
+                        animated={isEnding}
                         stripes={4}
                     />
                 </RightMiniScreen>
@@ -64,6 +68,7 @@ const EndingScreen = () => {
                     </div>
                 </CenterScreen>
             </Board>
+            <BlackScreen />
         </Background>
     )
 }
