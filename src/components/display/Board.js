@@ -10,8 +10,9 @@ const Board = ({ children }) => {
     )
     useEffect(() => {
         const handleResize = e => {
-            const newIsHorizontal = e.target.innerWidth / e.target.innerHeight >= boardAspectRatio
-            setIsHorizontal(newIsHorizontal)
+            setIsHorizontal(
+                e.target.innerWidth / e.target.innerHeight >= boardAspectRatio
+            )
         }
         tab.addEventListener('resize', handleResize)
         return () => {
@@ -21,7 +22,10 @@ const Board = ({ children }) => {
     return (
         <div
             style={{
-                position: 'relative',
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
                 backgroundImage: `url(${boardImg})`,
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'contain',
