@@ -5,10 +5,10 @@ const LeftMiniScreen = ({ children }) => {
         <div
             style={{
                 position: 'absolute',
-                width: '20%',
-                height: '20.4%',
+                width: '19.9%',
+                height: '20.5%',
                 top: '50.1%',
-                left: '10.7%',
+                left: '10.79%',
                 transform: 'translate(-50%, -50%)',
                 overflow: 'hidden',
                 display: 'flex',

@@ -5,10 +5,10 @@ const RightMiniScreen = ({ children }) => {
         <div
             style={{
                 position: 'absolute',
-                width: '20%',
-                height: '20.4%',
+                width: '19.9%',
+                height: '20.5%',
                 top: '50.1%',
-                left: '89.2%',
+                left: '89.17%',
                 transform: 'translate(-50%, -50%)',
                 fontSize: '300%',
                 overflow: 'hidden',
