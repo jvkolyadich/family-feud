@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import answerImg from '../../assets/answer.png'
 import questionImg from '../../assets/question.png'
 import blankQuestionImg from '../../assets/blankQuestion.png'
+import MaxTextSize from './MaxTextSize'
 
 const Answers = () => {
     const currentRoundId = useSelector(state => state.game.currentRoundId)
@@ -38,42 +39,32 @@ const Answers = () => {
                                 display: 'flex'
                             }}
                         >
-                            <div
+                            <MaxTextSize
+                                text={answer.text}
                                 style={{
                                     margin: '1.2% 0 1.4% 1.2%',
                                     width: '70%',
-                                    display: 'flex',
-                                    justifyContent: 'center',
-                                    alignItems: 'center',
-                                    textAlign: 'center',
-                                    fontSize: (
-                                        answer.text.length > 10
-                                        ? answer.text.length > 21
-                                        ? '105%'
-                                        : '150%'
-                                        : '180%'
-                                    ),
-                                    overflow: 'hidden',
-                                    fontFamily: 'Impact, sans-serif',
-                                    color: 'white'
-                                }
-                            }>
-                                {answer.text}
-                            </div>
+                                    overflow: 'hidden'
+                                }}
+                            />
                             <div
                                 style={{
+                                    position: 'relative',
                                     margin: '1.2% 1.2% 1.4% 0',
                                     width: '30%',
                                     display: 'flex',
                                     justifyContent: 'center',
                                     alignItems: 'center',
-                                    fontSize: '180%',
                                     overflow: 'hidden',
-                                    fontFamily: 'Impact, sans-serif',
-                                    color: 'white'
                                 }}
                             >
-                                {answer.points}
+                                <MaxTextSize
+                                    text={answer.points}
+                                    style={{
+                                        width: '90%',
+                                        height: '60%',
+                                    }}
+                                />
                             </div>
                         </div>
                     ) : (
@@ -90,13 +81,16 @@ const Answers = () => {
                                 display: 'flex',
                                 justifyContent: 'center',
                                 alignItems: 'center',
-                                textAlign: 'center',
-                                fontSize: '280%',
-                                fontFamily: 'Impact, sans-serif',
-                                color: 'white'
                             }}
                         >
-                            <div style={{ marginRight: index === 0 ? '1.5%' : '0' }}>{index + 1}</div>
+                            <MaxTextSize
+                                text={'' + (index + 1)}
+                                style={{
+                                    width: '20%',
+                                    height: '65%',
+                                    marginRight: index === 0 ? '1.5%' : '0'
+                                }}
+                            />
                         </div>
                     )
                 ) : (

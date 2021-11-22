@@ -13,15 +13,7 @@ const LeftMiniScreen = ({ children }) => {
                 overflow: 'hidden',
                 display: 'flex',
                 justifyContent: 'center',
-                alignItems: 'center',
-                color: 'white',
-                fontFamily: 'Impact, sans-serif',
-                fontSize: '300%',
-                textAlign: 'center',
-                textShadow: '-1px -1px 0 #000,' +
-                            '1px -1px 0 #000,' +
-                            '-1px 1px 0 #000,' +
-                            '1px 1px 0 #000'
+                alignItems: 'center'
             }}
         >
             { children }
