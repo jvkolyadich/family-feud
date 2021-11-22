@@ -1,13 +1,13 @@
 const initialState = {
     teams: [
         {
-            id: 0,
+            id: 1,
             score: 0,
             strikes: 0
 
         },
         {
-            id: 1,
+            id: 2,
             score: 0,
             strikes: 0
         }
