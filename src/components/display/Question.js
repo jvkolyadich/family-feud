@@ -42,7 +42,7 @@ const Question = () => {
                     alignItems: 'center',
                     color: 'white',
                     fontFamily: 'Impact, sans-serif',
-                    fontSize: '180%',
+                    fontSize: '3.2vmax',
                     textAlign: 'center',
                     textShadow: '-1px -1px 0 #000,' +
                                 '1px -1px 0 #000,' +

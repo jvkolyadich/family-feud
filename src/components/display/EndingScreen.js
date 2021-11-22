@@ -11,6 +11,7 @@ import LeftMiniScreen from './LeftMiniScreen'
 import RightMiniScreen from './RightMiniScreen'
 import Lights from './Lights'
 import BlackScreen from './BlackScreen'
+import MaxTextSize from './MaxTextSize'
 
 const EndingScreen = () => {
     const isEnding = useSelector(state => state.game.ending)
@@ -22,7 +23,13 @@ const EndingScreen = () => {
                     <Logo />
                 </TopMiniScreen>
                 <LeftMiniScreen>
-                    {teams[0].score}
+                    <MaxTextSize
+                        text={'' + teams[0].score}
+                        style={{
+                            width: '70%',
+                            height: '35%'
+                        }}
+                    />
                     <Lights
                         turnedOn={teams[0].score >= teams[1].score}
                         animated={isEnding}
@@ -30,7 +37,13 @@ const EndingScreen = () => {
                     />
                 </LeftMiniScreen>
                 <RightMiniScreen>
-                    {teams[1].score}
+                    <MaxTextSize
+                        text={'' + teams[1].score}
+                        style={{
+                            width: '70%',
+                            height: '35%'
+                        }}
+                    />
                     <Lights
                         turnedOn={teams[1].score >= teams[0].score}
                         animated={isEnding}
