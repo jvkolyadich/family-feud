@@ -1,9 +1,28 @@
-function debounce(func, timeout){
-    let timer;
+export const debounce_trailing = (callback, timeout) => {
+    let timer
     return (...args) => {
-        clearTimeout(timer);
-        timer = setTimeout(() => { func.apply(this, args); }, timeout);
-    };
+        clearTimeout(timer)
+        timer = setTimeout(() => callback(...args), timeout)
+    }
 }
 
-export default debounce
+export const debounce_leading = (callback, timeout) => {
+    let timer
+    return (...args) => {
+        if (!timer) callback(...args)
+        clearTimeout(timer)
+        timer = setTimeout(() => timer = undefined, timeout)
+    }
+}
+
+export const debounce_leading_trailing = (callback, timeout) => {
+    let timer
+    return (...args) => {
+        if (!timer) callback(...args)
+        clearTimeout(timer)
+        timer = setTimeout(() => {
+            timer = undefined
+            callback(...args)
+        }, timeout)
+    }
+}
