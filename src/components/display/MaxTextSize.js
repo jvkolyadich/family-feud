@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { tab } from '../../tab'
 import maxFontSize from '../../util/maxFontSize'
+import debounce from '../../util/debounce'
 
 const MaxTextSize = ({
     text,
@@ -12,22 +13,21 @@ const MaxTextSize = ({
     const ref = useRef(null)
     const [fontSize, setFontSize] = useState(0)
     const resizeText = () => {
-        const width = ref.current.offsetWidth
-        const height = ref.current.offsetHeight
         setFontSize(
             maxFontSize(
                 text,
                 font,
-                width,
-                height,
-                height * minPercentFontSize,
-                height * maxPercentFontSize
+                ref.current.offsetWidth,
+                ref.current.offsetHeight,
+                ref.current.offsetHeight * (minPercentFontSize / 100),
+                ref.current.offsetHeight * (maxPercentFontSize / 100)
             )
         )
     }
-    const handleResize = () => tab.requestAnimationFrame(resizeText)
+    const scheduleResizeText = () => tab.requestAnimationFrame(resizeText)
+    const handleResize = debounce(scheduleResizeText, 500)
     useEffect(() => {
-        resizeText()
+        scheduleResizeText()
         tab.addEventListener('resize', handleResize)
         return () => tab.removeEventListener('resize', handleResize)
     }, [text])
@@ -50,7 +50,7 @@ const MaxTextSize = ({
                 ...style
             }}
         >
-            {fontSize && text}
+            {text}
         </div>
     )
 }
