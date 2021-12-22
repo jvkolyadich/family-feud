@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import backsplashImg from '../../assets/backsplash.png'
+import MaxTextSize from './MaxTextSize'
 
 const Question = () => {
     const isShowing = useSelector(state =>  state.game.isQuestionShowing)
@@ -29,7 +30,9 @@ const Question = () => {
                     height: '100%'
                 }}
             />
-            <div
+            <MaxTextSize
+                text={currentRoundId ? rounds.find(round => round.id === currentRoundId)?.question : ''}
+                maxPercentFontSize={20}
                 style={{
                     position: 'absolute',
                     width: '94%',
@@ -37,21 +40,8 @@ const Question = () => {
                     top: '50%',
                     left: '50%',
                     transform: 'translate(-50%, -50%)',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    color: 'white',
-                    fontFamily: 'Impact, sans-serif',
-                    fontSize: '3.2vmax',
-                    textAlign: 'center',
-                    textShadow: '-1px -1px 0 #000,' +
-                                '1px -1px 0 #000,' +
-                                '-1px 1px 0 #000,' +
-                                '1px 1px 0 #000',
                 }}
-            >
-                {currentRoundId && rounds.find(round => round.id === currentRoundId)?.question}
-            </div>
+            />
         </div>
     )
 }
