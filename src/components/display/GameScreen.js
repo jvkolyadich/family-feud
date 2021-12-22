@@ -26,7 +26,7 @@ const GameScreen = () => {
                         <Logo />
                     ) : (
                         <MaxTextSize
-                            text={pendingPoints}
+                            text={'' + pendingPoints}
                             style={{
                                 position: 'absolute',
                                 top: '50%',
