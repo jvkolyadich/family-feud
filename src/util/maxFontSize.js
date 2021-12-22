@@ -8,10 +8,11 @@ const maxFontSize = (
     minFontSize = 0,
     maxFontSize = Infinity
 ) => {
+    text = text.trim()
     if (!text || !containerWidth || !containerHeight) return 0
     context.font = `${containerHeight}px ${font}`
     const textWidth = context.measureText(text).width
-    const maxFontWidth = containerHeight * (containerWidth / textWidth) * 0.98
+    const maxFontWidth = containerHeight * (containerWidth / textWidth) * 0.988
     let fontSize = Math.min(containerHeight, maxFontWidth)
     fontSize = Math.min(fontSize, maxFontSize)
     fontSize = Math.max(fontSize, minFontSize)
