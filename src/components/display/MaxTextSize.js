@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { tab } from '../../tab'
 import maxFontSize from '../../util/maxFontSize'
-import debounce from '../../util/debounce'
+import { debounce_leading_trailing } from '../../util/debounce'
 
 const MaxTextSize = ({
     text,
@@ -25,12 +25,13 @@ const MaxTextSize = ({
         )
     }
     const scheduleResizeText = () => tab.requestAnimationFrame(resizeText)
-    const handleResize = debounce(scheduleResizeText, 500)
+    const handleResize = debounce_leading_trailing(scheduleResizeText, 500)
     useEffect(() => {
         scheduleResizeText()
         tab.addEventListener('resize', handleResize)
         return () => tab.removeEventListener('resize', handleResize)
-    }, [text])
+    }, [])
+    useEffect(scheduleResizeText, [text])
     return (
         <div
             ref={ref}
