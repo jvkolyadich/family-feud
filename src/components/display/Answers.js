@@ -27,7 +27,7 @@ const Answers = () => {
                 return answer.text ? (
                     answer.isRevealed ? (
                         <div
-                            key={index}
+                            key={'revealed-' + index}
                             style={{
                                 backgroundImage: `url(${answerImg})`,
                                 backgroundRepeat: 'no-repeat',
@@ -41,6 +41,7 @@ const Answers = () => {
                         >
                             <MaxTextSize
                                 text={answer.text}
+                                maxPercentFontSize={70}
                                 style={{
                                     margin: '1.2% 0 1.4% 1.2%',
                                     width: '70%',
@@ -59,7 +60,7 @@ const Answers = () => {
                                 }}
                             >
                                 <MaxTextSize
-                                    text={answer.points}
+                                    text={'' + answer.points}
                                     style={{
                                         width: '90%',
                                         height: '60%',
@@ -69,7 +70,7 @@ const Answers = () => {
                         </div>
                     ) : (
                         <div
-                            key={index}
+                            key={'hidden-' + index}
                             style={{
                                 backgroundImage: `url(${questionImg})`,
                                 backgroundRepeat: 'no-repeat',
@@ -95,7 +96,7 @@ const Answers = () => {
                     )
                 ) : (
                     <div
-                        key={index}
+                        key={'unused-' + index}
                         style={{
                             backgroundImage: `url(${blankQuestionImg})`,
                             backgroundRepeat: 'no-repeat',

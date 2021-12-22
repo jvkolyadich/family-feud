@@ -27,7 +27,7 @@ const RoundItem = ({ round }) => {
                 })}
             />
             {roundAnswers.map((answer, index) => (
-                <AnswerItem answer={answer} index={index} />
+                <AnswerItem key={answer.id} answer={answer} index={index} />
             ))}
             <div className='w-100 d-flex justify-content-between align-items-center mt-3'>
                 <button

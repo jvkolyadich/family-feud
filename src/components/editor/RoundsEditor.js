@@ -9,7 +9,7 @@ const RoundsEditor = ({ className }) => {
         <div className={className}>
             <div className='fs-4 mb-1'>Rounds</div>
             {rounds.map(round => (
-                <RoundItem round={round} />
+                <RoundItem key={round.id} round={round} />
             ))}
             <button
                 className='btn btn-primary w-100'

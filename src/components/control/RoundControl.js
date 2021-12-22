@@ -33,6 +33,7 @@ const RoundControl = ({ disabled }) => {
             >
                 {currentAnswers.map((answer, index) => (
                     <AnswerControl
+                        key={answer.id}
                         disabled={disabled}
                         answer={answer}
                         index={index}
