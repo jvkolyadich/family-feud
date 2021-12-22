@@ -46,6 +46,7 @@ const LoadSaveButtons = ({ className }) => {
                         payload: JSON.parse(e.target.result)
                     })
                     reader.readAsText(e.target.files[0])
+                    fileInputRef.current.value = ''
                 }}
             />
         </div>
