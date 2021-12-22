@@ -6,6 +6,7 @@ import ConfirmButton from '../form/ConfirmButton'
 const RoundItem = ({ round }) => {
     const dispatch = useDispatch()
     const answers = useSelector(state => state.answers.answers)
+    const currentRoundId = useSelector(state => state.game.currentRoundId)
     const roundAnswers = answers.filter(answer => answer.roundId === round.id)
     return (
         <div
@@ -42,6 +43,7 @@ const RoundItem = ({ round }) => {
                 </button>
                 <ConfirmButton
                     className='btn btn-danger text-nowrap'
+                    disabled={round.id === currentRoundId}
                     onClick={() => {
                         dispatch({
                             type: 'answers/delete-from-round',
