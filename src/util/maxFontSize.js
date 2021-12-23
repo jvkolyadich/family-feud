@@ -23,9 +23,9 @@ const maxFontSize = (
     }
     let lineCount = 2
     let prevFontSize
+    const words = text.split(' ')
     do {
         prevFontSize = fontSize
-        const words = text.split(' ')
         const maxLineLength = Math.floor((text.length - (lineCount - 1)) / lineCount)
         const lines = words.reduce((lines, word) => {
             if (lines.length && (lines[lines.length - 1].join(' ').length + word.length + 1) <= maxLineLength)
@@ -49,7 +49,7 @@ const maxFontSize = (
         fontSize = Math.min(fontSize, fontSize * (containerHeight / (textHeight * lines.length)))
         fontSize = Math.min(fontSize, (containerHeight / lines.length))
         lineCount++
-    } while (fontSize > prevFontSize)
+    } while (fontSize > prevFontSize && fontSize < maxFontSize)
     prevFontSize = Math.min(prevFontSize, maxFontSize)
     prevFontSize = Math.max(prevFontSize, minFontSize)
     return prevFontSize
