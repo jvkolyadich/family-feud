@@ -27,7 +27,6 @@ const MaxTextSize = ({
     const scheduleResizeText = () => tab.requestAnimationFrame(resizeText)
     const handleResize = debounce_leading_trailing(scheduleResizeText, 500)
     useEffect(() => {
-        scheduleResizeText()
         tab.addEventListener('resize', handleResize)
         return () => tab.removeEventListener('resize', handleResize)
     }, [])
