@@ -50,8 +50,8 @@ const maxFontSize = (
         fontSize = Math.min(fontSize, (containerHeight / lines.length))
         lineCount++
     } while (fontSize > prevFontSize)
-    fontSize = Math.min(prevFontSize, maxFontSize)
-    fontSize = Math.max(prevFontSize, minFontSize)
+    prevFontSize = Math.min(prevFontSize, maxFontSize)
+    prevFontSize = Math.max(prevFontSize, minFontSize)
     return prevFontSize
 }
 
