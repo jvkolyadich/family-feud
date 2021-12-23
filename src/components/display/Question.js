@@ -32,7 +32,7 @@ const Question = () => {
             />
             <MaxTextSize
                 text={currentRoundId ? rounds.find(round => round.id === currentRoundId)?.question : ''}
-                maxPercentFontSize={20}
+                maxPercentFontSize={15}
                 style={{
                     position: 'absolute',
                     width: '94%',
